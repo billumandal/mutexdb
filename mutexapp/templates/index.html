@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/default.css" %}>
+    <script src="{% static "assets/js/jquery-2.0.0.min.js %}"></script>
+    <script src="{% static 'assets/js/ajax.js' %}"></script>
+</head>
+<body>
+
+    <h3>Home</h3>
+    {% csrf_token %}
+    <input type="text" id="search" name="search" />
+
+    <ul id="search-results">
+
+    </ul>
+
+</body>

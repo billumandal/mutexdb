@@ -1,0 +1,9 @@
+{% if mutexes.count > 0 %}
+
+    {% for mutex in mutexes %}
+        <li><a href="/mutexes/get/{{ mutexes.id }}/">{{ mutex.mutexs }}</a></li>
+    {% endfor %}
+
+{% else %}
+    <li>There are no mutexes like this in our database.</li>
+{% endif %}

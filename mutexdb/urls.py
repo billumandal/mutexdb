@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from mutexapp import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^/', views.search, name='index'),
+    url(r'^header/$', views.show_header, name='header'),
 ]

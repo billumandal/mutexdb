@@ -122,7 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/assets/'
 STATICFILES_DIRS = (
-        os.path.join(os.path.dirname(__file__), 'assets'),
-        # os.path.join(os.path.dirname(__file__), 'mutexapp/assets'),
+        # os.path.join(os.path.dirname(__file__), 'assets'),
+        os.path.join(BASE_DIR, 'mutexapp', 'assets'),
     ) 
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_ROOT = os.path.join(
+        os.path.dirname(BASE_DIR), 'deployment', 'collected_static')

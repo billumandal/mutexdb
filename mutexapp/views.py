@@ -14,6 +14,7 @@ def search(request):
         results=[]
 
     return render_to_response('search.html', RequestContext(request, {
+        # Should I put index.html here rather than search.html
             'form':form,
             'results':results,
         })

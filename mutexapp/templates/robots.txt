@@ -1,0 +1,10 @@
+#Sitemaps
+Sitemap: http://www.mutexdb.com/sitemap.xml
+
+User-agent: *
+Crawl-delay: 4
+Disallow: /cgi-bin/
+Disallow: /assets/
+
+User-agent: ia_archiver
+Disallow: /

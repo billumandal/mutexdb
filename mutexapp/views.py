@@ -30,10 +30,10 @@ def ajax_search(request):
     else:
         search_text = ''
 
-    mutexes = Mutexs.objects.filter(mutexs__contains=search_text)
+    mutexes = Mutexs.objects.filter(mutexs__icontains=search_text)
 
     return render_to_response('index.html', {'mutexes' : mutexes})
-    return render_to_response('search_results.html', {'mutexes' : mutexes})
+    # return render_to_response('search_results.html', {'mutexes' : mutexes})
 
 def mutexs(request):
     args = {}

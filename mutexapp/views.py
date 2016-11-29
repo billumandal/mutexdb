@@ -5,7 +5,7 @@ def search(request):
     if request.GET:
         form = MutexsSearchForm(request.GET)
         if form.is_valid():
-            result = Mutexs.objects.filter(name__icontains=searchterm)
+            results = Mutexs.objects.filter(name__icontains=searchterm)
         else:
             results=[]
 
@@ -32,7 +32,7 @@ def ajax_search(request):
 
     mutexes = Mutexs.objects.filter(mutexs__icontains=search_text)
 
-    return render_to_response('index.html', {'mutexes' : mutexes})
+    return render_to_response('index2.html', {'mutexes' : mutexes})
     # return render_to_response('search_results.html', {'mutexes' : mutexes})
 
 def mutexs(request):
@@ -43,3 +43,18 @@ def mutexs(request):
 
 def show_header(request):
     return render(request, 'header.html')
+
+def searchproject(request):
+
+    if request.POST:
+        search_term = request.POST['search']
+        if search_term == '':
+            Mutexs.objects.create(
+                mutexs = request.POST['search_text']
+            )
+    else:
+        search_term = ''
+
+    mutexes = Mutexs.objects.filter(mutexs__icontains=search_text)
+
+    return render_to_response('index3.html', {'mutexes' : mutexes})

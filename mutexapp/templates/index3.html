@@ -1,0 +1,26 @@
+{% load staticfiles %}
+{% include "header.html" %}
+<body>
+    <h3>This is the 3rd Index</h3>
+    <form action="/" method="post">
+        {% csrf_token %}
+        <input type="text" id="search" name="search" />
+        <input type="submit" value="Search">
+    <form>
+    <hr>
+    {% if result %}
+        {% for res in result %}
+        <li>{{ res }}</li>
+        {% endfor %}
+    {% endif %}
+
+
+    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/default.css' %}">
+    // <script src="{% static '/assets/js/jquery-2.0.0.min.js' %}"></script>
+    // <script src="{% static '/assets/js/ajax.js' %}"></script>
+    // <script src="/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/social.js"></script>
+    {% include "footer.html" %}
+   </body>
+</html>

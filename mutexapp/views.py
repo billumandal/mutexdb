@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from models import Mutexs
+from models import Mutexs, Feedback
 
 def search(request):
     if request.GET:
@@ -45,16 +45,15 @@ def show_header(request):
     return render(request, 'header.html')
 
 def searchproject(request):
-
     if request.POST:
         search_term = request.POST['search']
         if search_term == '':
             Mutexs.objects.create(
-                mutexs = request.POST['search_text']
+                mutexs = request.POST['search_term']
             )
     else:
         search_term = ''
 
-    mutexes = Mutexs.objects.filter(mutexs__icontains=search_text)
+    mutexes = Mutexs.objects.filter(mutexs__icontains=search_term)
 
-    return render_to_response('index3.html', {'mutexes' : mutexes})
+    return render(request, 'index3.html', {'mutexes' : mutexes})

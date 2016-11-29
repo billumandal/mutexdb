@@ -21,6 +21,7 @@ from mutexapp import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.search, name='index'),
-    url(r'^index/$', views.ajax_search, name='index'),
+    url(r'^ajaxsearch/$', views.ajax_search, name='index2'),
+    url(r'^searchproject/$', views.searchproject, name='index3'),
     url(r'^header/$', views.show_header, name='header'),
 ]

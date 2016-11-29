@@ -1,16 +1,19 @@
 {% load staticfiles %}
 {% include "header.html" %}
-<body>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
     <h3>This is the 3rd Index</h3>
-    <form action="/" method="post">
+    <form action="" method="post">
         {% csrf_token %}
         <input type="text" id="search" name="search" />
         <input type="submit" value="Search">
-    <form>
+    </form>
     <hr>
-    {% if result %}
-        {% for res in result %}
-        <li>{{ res }}</li>
+    {% if mutexes %}
+        {% for mutex in mutexes %}
+        <li>{{ mutex }}</li>
         {% endfor %}
     {% endif %}
 
@@ -22,5 +25,5 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/social.js"></script>
     {% include "footer.html" %}
-   </body>
+    </div>
 </html>

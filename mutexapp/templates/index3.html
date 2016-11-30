@@ -7,8 +7,9 @@
     <h3>This is the 3rd Index</h3>
     <form action="" method="post">
         {% csrf_token %}
+        {{ form }}
         <input type="text" id="search" name="search" />
-        <input type="submit" value="Search">
+        <input type="submit" value="search">
     </form>
     <hr>
     <ol>

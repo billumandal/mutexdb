@@ -11,17 +11,22 @@
         <input type="submit" value="Search">
     </form>
     <hr>
+    <ol>
     {% if mutexes %}
+        <h3>We've found the following mutexes that match the string you've posted</h3>:
         {% for mutex in mutexes %}
         <li>{{ mutex }}</li>
         {% endfor %}
+    {% else %}
+        <h3>There were no mutexs that matched the string provided by you. We've entered your mutex in our database.</h3>
     {% endif %}
+    </ol>
 
 
     <link rel="stylesheet" type="text/css" href="{% static '/assets/css/default.css' %}">
     // <script src="{% static '/assets/js/jquery-2.0.0.min.js' %}"></script>
     // <script src="{% static '/assets/js/ajax.js' %}"></script>
-    // <script src="/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="/assets/js/jquery-1.10.2.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/social.js"></script>
     {% include "footer.html" %}

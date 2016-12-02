@@ -64,6 +64,8 @@ def searchproject(request):
             {'form': form, 'mutexes':mutexes,})
     else:
         form1 = MutexSearchForm(request.GET)
+        # mutexes=[]
+        mutexes=''
         return render(request, 'index3.html', {'form':form1})
 
 

@@ -3,21 +3,21 @@ from models import Mutexs, Feedback
 from django.http import HttpResponseRedirect
 from forms import MutexSearchForm
 
-def searchproject(request):
-    if request.POST:
-        search_term = request.POST['search']
-        if search_term == '':
-            print "This is search_term:", search_term
+# def searchproject(request):
+#     if request.POST:
+#         search_term = request.POST['search']
+#         if search_term == '':
+#             print "This is search_term:", search_term
             
-            Mutexs.objects.create(
-                mutexs = request.POST['search_term']
-            )
-    else:
-        search_term = ''
+#             Mutexs.objects.create(
+#                 mutexs = request.POST['search_term']
+#             )
+#     else:
+#         search_term = ''
 
-    mutexes = Mutexs.objects.filter(mutexs__icontains=search_term)
+#     mutexes = Mutexs.objects.filter(mutexs__icontains=search_term)
 
-    return render(request, 'index.html', {'mutexes' : mutexes})
+#     return render(request, 'index3.html', {'mutexes' : mutexes})
 
 def search(request):
     if request.GET:
@@ -31,7 +31,7 @@ def search(request):
         form = MutexSearchForm()
         results=[]
 
-    return render(request, 'index.html',{
+    return render(request, 'index2.html',{
             'form':form,
             'results':results,
         })

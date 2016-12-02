@@ -3,24 +3,23 @@
     <link rel="stylesheet" type="text/css" href="{% static '/assets/css/default.css' %}">
     <script src="{% static '/assets/js/jquery-2.0.0.min.js' %}"></script>
     <script src="{% static '/assets/js/ajax.js' %}"></script>
-<body>
 
     <h3>Home</h3>
+
+    <form action="" method='get'>
+    {% csrf_token %}
+    <input type="text" id="search_text" name="search_text" />
+    <input type="submit" value='search' />
+    </form>
+
+    <ul id="search-results">
     {% if mutexes.count > 0 %}
-
-    {% for mutex in mutexes %}
-        <li><a href="/mutexes/get/{{ mutexes.id }}/">{{ mutex.mutexs }}</a></li>
-    {% endfor %}
-
+        {% for mutex in mutexes %}
+            <li><a href="/mutexes/get/{{ mutexes.id }}/">{{ mutex.mutexs }}</a></li>
+        {% endfor %}
     {% else %}
         <li>There are no mutexes like this in our database.</li>
     {% endif %}
-
-    {% csrf_token %}
-    <input type="text" id="search_text" name="search_text" />
-
-    <ul id="search-results">
-
     </ul>
 
 

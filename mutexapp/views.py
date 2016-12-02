@@ -31,11 +31,10 @@ def search(request):
         form = MutexSearchForm()
         results=[]
 
-    return render_to_response('search.html', RequestContext(request, {
+    return render(request, 'index.html',{
             'form':form,
             'results':results,
         })
-    )
 
 def ajax_search(request):
     if request.method == 'POST':

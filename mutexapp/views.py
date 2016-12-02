@@ -17,7 +17,7 @@ def searchproject(request):
 
     mutexes = Mutexs.objects.filter(mutexs__icontains=search_term)
 
-    return render(request, 'index3.html', {'mutexes' : mutexes})
+    return render(request, 'index.html', {'mutexes' : mutexes})
 
 def search(request):
     if request.GET:
@@ -61,26 +61,23 @@ def ajax_search(request):
 def show_header(request):
     return render(request, 'header.html')
 
-def searchproject(request):
+# def searchproject(request):
 
-    if request.method == 'POST':
-        form = MutexSearchForm(request.POST)
-        if form.is_valid():
-            mutexes = Mutexs.objects.filter(name__icontains=search)
-            if mutexes == '':
-                form.save()
-                return HttpResponseRedirect('.')
-        else:
-            form = MutexSearchForm()
-            mutexes=[]
-            return render(request, 'search_results.html', 
-                {'form': form})
+    # if request.method == 'POST':
+    #     form = MutexSearchForm(request.POST)
+    #     if form.is_valid():
+    #         mutexes = Mutexs.objects.filter(name__icontains=search)
+    #         if mutexes == '':
+    #             form.save()
+    #             return HttpResponseRedirect('.')
+    #     else:
+    #         form = MutexSearchForm()
 
-        return render(request, 'search_results.html', 
-            {'form': form, 'mutexes':mutexes,})
-    else:
-        form1 = MutexSearchForm(request.GET)
-        return render(request, 'index3.html', {'form':form1})
+    #     return render(request, 'search_results.html', 
+    #         {'form': form, 'mutexes':mutexes,})
+    # else:
+    #     form1 = MutexSearchForm(request.GET)
+    #     return render(request, 'index3.html', {'form':form1})
 
 
     # if request.POST:
@@ -94,4 +91,4 @@ def searchproject(request):
 
     # mutexes = Mutexs.objects.filter(mutexs__icontains=search_term)
 
-    # return render(request, 'index3.html', {'mutexes' : mutexes})
+    # return render(request, 'search_results.html', {'mutexes' : mutexes})

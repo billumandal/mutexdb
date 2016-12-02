@@ -20,8 +20,8 @@ from mutexapp import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.searchproject, name='index3'),
-    url(r'^ajaxsearch/$', views.ajax_search, name='index2'),
-    # url(r'^search/$', views.searchproject, name='index'),
+    url(r'^searchproject/$', views.searchproject, name='searchproject'),
+    url(r'^ajaxsearch/$', views.ajax_search, name='ajax_search'),
+    url(r'^search/$', views.search, name='search'),
     url(r'^header/$', views.show_header, name='header'),
 ]

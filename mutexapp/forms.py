@@ -1,4 +1,5 @@
 from django import forms
+from models import Mutexs, Feedback	
 
 class MutexSearchForm(forms.Form):
-    mutexs = models.CharField(label='search', max_length=500) 
+    mutexs = forms.CharField(label='search', max_length=500) 

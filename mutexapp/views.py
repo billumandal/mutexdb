@@ -1,17 +1,18 @@
 from django.shortcuts import render, render_to_response
 from models import Mutexs, Feedback
 from django.http import HttpResponseRedirect
+from forms import MutexSearchForm
 
 def search(request):
     if request.GET:
-        form = MutexsSearchForm(request.GET)
+        form = MutexSearchForm(request.GET)
         if form.is_valid():
             results = Mutexs.objects.filter(name__icontains=search)
         else:
             results=[]
 
     else:
-        form = MutexsSearchForm()
+        form = MutexSearchForm()
         results=[]
 
     return render_to_response('search.html', RequestContext(request, {
@@ -47,20 +48,23 @@ def show_header(request):
 def searchproject(request):
 
     if request.method == 'POST':
-        form = MutexsSearchForm(request.POST)
+        form = MutexSearchForm(request.POST)
         if form.is_valid():
             mutexes = Mutexs.objects.filter(name__icontains=search)
             if mutexes == '':
                 form.save()
                 return HttpResponseRedirect('.')
         else:
-            form = MutexsSearchForm()
+            form = MutexSearchForm()
             mutexes=[]
             return render(request, 'index3.html', 
                 {'form': form})
 
         return render(request, 'index3.html', 
             {'form': form, 'mutexes':mutexes,})
+    else:
+        form1 = MutexSearchForm(request.GET)
+        return render(request, 'index3.html', {'form':form1})
 
 
     # if request.POST:

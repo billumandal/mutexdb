@@ -60,8 +60,6 @@ def ajax_search(request):
 
 def show_header(request):
     return render(request, 'header.html')
-<<<<<<< HEAD
-=======
 
 def searchproject(request):
 
@@ -75,15 +73,13 @@ def searchproject(request):
         else:
             form = MutexSearchForm()
             mutexes=[]
-            return render(request, 'index3.html', 
+            return render(request, 'search_results.html', 
                 {'form': form})
 
-        return render(request, 'index3.html', 
+        return render(request, 'search_results.html', 
             {'form': form, 'mutexes':mutexes,})
     else:
         form1 = MutexSearchForm(request.GET)
-        # mutexes=[]
-        mutexes=''
         return render(request, 'index3.html', {'form':form1})
 
 

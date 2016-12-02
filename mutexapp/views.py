@@ -1,6 +1,22 @@
 from django.shortcuts import render, render_to_response
 from models import Mutexs, Feedback
 
+def searchproject(request):
+    if request.POST:
+        search_term = request.POST['search']
+        if search_term == '':
+            print "This is search_term:", search_term
+            
+            Mutexs.objects.create(
+                mutexs = request.POST['search_term']
+            )
+    else:
+        search_term = ''
+
+    mutexes = Mutexs.objects.filter(mutexs__icontains=search_term)
+
+    return render(request, 'index3.html', {'mutexes' : mutexes})
+
 def search(request):
     if request.GET:
         form = MutexsSearchForm(request.GET)
@@ -43,17 +59,3 @@ def mutexs(request):
 
 def show_header(request):
     return render(request, 'header.html')
-
-def searchproject(request):
-    if request.POST:
-        search_term = request.POST['search']
-        if search_term == '':
-            Mutexs.objects.create(
-                mutexs = request.POST['search_term']
-            )
-    else:
-        search_term = ''
-
-    mutexes = Mutexs.objects.filter(mutexs__icontains=search_term)
-
-    return render(request, 'index3.html', {'mutexes' : mutexes})

@@ -23,7 +23,7 @@ def search(request):
     if request.GET:
         form = MutexSearchForm(request.GET)
         if form.is_valid():
-            results = Mutexs.objects.filter(name__icontains=search)
+            results = Mutexs.objects.filter(mutexs__icontains=search)
         else:
             results=[]
 
@@ -62,7 +62,7 @@ def searchproject(request):
     if request.method == 'POST':
         form = MutexSearchForm(request.POST)
         if form.is_valid():
-            mutexes = Mutexs.objects.filter(name__icontains=search)
+            mutexes = Mutexs.objects.filter(mutexs__icontains=MutexSearchForm["mutexs"])
             if mutexes == '':
                 form.save()
                 return HttpResponseRedirect('.')

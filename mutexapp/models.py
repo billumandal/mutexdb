@@ -13,3 +13,6 @@ class Feedback(models.Model):
     website = models.CharField(max_length=70, blank=True)
     email_address = models.EmailField(max_length=100, blank=False)
     message = models.CharField(max_length=500, blank=False)
+
+    def __unicode__(self):
+    	return self.id, self.email_address, self.name

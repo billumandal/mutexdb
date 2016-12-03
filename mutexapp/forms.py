@@ -10,4 +10,3 @@ class FeedbackForm(forms.Form):
     website = forms.CharField(max_length=70,label='')
     email_address = forms.EmailField(max_length=100, label='')
     message = forms.CharField(max_length=500, label='')
-    

@@ -4,11 +4,12 @@
     <hr/>
     <hr/>
     <hr/>
-    <h3>This is the 3rd Index</h3>
+    <h3>{{ some_variable }}</h3>
+    <br><br>
     <form action="" method="post">
         {% csrf_token %}
-        {# {{ form }} #}
-        <input type="text" id="search" name="search" />
+        {{ form }}
+        <!-- <input type="text" id="search" name="search" /> -->
         <input type="submit" value="search">
     </form>
     <hr>
@@ -18,7 +19,11 @@
             {% for mutex in mutexes %}
             <li>{{ mutex }}</li>
             {% endfor %}
-        {% else %}
+        
+        {% elif nothing %}
+            <h4></h4>
+
+        {% else%}
             <h4>There were no mutexs that matched the string provided by you. We've entered your mutex in our database.</h4>
         {% endif %}
         </ol>

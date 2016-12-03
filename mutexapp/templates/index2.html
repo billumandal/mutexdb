@@ -1,10 +1,14 @@
 {% load staticfiles %}
 {% include "header.html" %}
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
     <link rel="stylesheet" type="text/css" href="{% static '/assets/css/default.css' %}">
     <script src="{% static '/assets/js/jquery-2.0.0.min.js' %}"></script>
     <script src="{% static '/assets/js/ajax.js' %}"></script>
 
-    <h3>Home</h3>
+    <h3>This is the Ajax Search</h3>
 
     <form action="" method='get'>
     {% csrf_token %}

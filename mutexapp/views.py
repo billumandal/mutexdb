@@ -3,7 +3,7 @@ from models import Mutexs, Feedback
 from django.http import HttpResponseRedirect
 from forms import MutexSearchForm
 
-def searchproject(request):
+def noformsearch(request):
     if request.POST:
         search_term = request.POST['search']
         if search_term == '':
@@ -51,32 +51,29 @@ def ajax_search(request):
     return render_to_response('index2.html', {'mutexes' : mutexes})
     # return render_to_response('search_results.html', {'mutexes' : mutexes})
 
-# def mutexs(request):
-#     args = {}
-#     args.update(csrf(request))
+def mutexs(request):
+    args = {}
+    args.update(csrf(request))
 
-#     args['mutexs'] = Mutexs.objects.all()
+    args['mutexs'] = Mutexs.objects.all()
 
-def show_header(request):
-    return render(request, 'header.html')
-
-# def searchproject(request):
-
-    # if request.method == 'POST':
-    #     form = MutexSearchForm(request.POST)
-    #     if form.is_valid():
-    #         mutexes = Mutexs.objects.filter(name__icontains=search)
-    #         if mutexes == '':
-    #             form.save()
-    #             return HttpResponseRedirect('.')
-    #     else:
-    #         form = MutexSearchForm()
-
-    #     return render(request, 'search_results.html', 
-    #         {'form': form, 'mutexes':mutexes,})
-    # else:
-    #     form1 = MutexSearchForm(request.GET)
-    #     return render(request, 'index3.html', {'form':form1})
+def searchproject(request):
+    some_variable = "This is a SearchProject View"
+    if request.method == 'POST':
+        form = MutexSearchForm(request.POST)
+        if form.is_valid():
+            mutexes = Mutexs.objects.filter(name__icontains=search)
+            if mutexes == '':
+                form.save()
+                return HttpResponseRedirect('.')
+            return render(request, 'index3.html', 
+                {'form': form, 'mutexes':mutexes, 'some_variable': some_variable})
+        
+    else:
+        nothing = [' ',]
+        form = MutexSearchForm()
+        return render(request, 'index3.html', 
+                {'form': form, 'nothing':nothing, 'some_variable':some_variable})
 
 
     # if request.POST:

@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
+import datetime
 
 class Mutexs(models.Model):
     mutexs = models.CharField(max_length=500) 
@@ -18,5 +19,5 @@ class Feedback(models.Model):
     	return self.id, self.email_address, self.name
 
 class Userlog(models.Model):
-	client_ip =
+	# client_ip = 
 	datetime = datetime.datetime.now()

@@ -16,3 +16,7 @@ class Feedback(models.Model):
 
     def __unicode__(self):
     	return self.id, self.email_address, self.name
+
+class Userlog(models.Model):
+	client_ip =
+	datetime = datetime.datetime.now()

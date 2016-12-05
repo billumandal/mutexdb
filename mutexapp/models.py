@@ -5,6 +5,8 @@ import datetime
 class Mutexs(models.Model):
     mutexs = models.CharField(max_length=500) 
 
+    verbose_name='mutexes'
+
     def __unicode__(self):
         return self.mutexs
 
@@ -21,3 +23,5 @@ class Feedback(models.Model):
 class Userlog(models.Model):
 	client_ip = models.GenericIPAddressField()
 	visiting_time = models.DateTimeField()
+
+    # verbose_name='Userlog'

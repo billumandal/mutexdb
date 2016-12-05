@@ -51,6 +51,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'mutexapp.middleware.save_client_ip_middleware.SaveClientIpMiddleware',
 ]
 
 ROOT_URLCONF = 'mutexdb.urls'
@@ -127,3 +128,7 @@ STATICFILES_DIRS = (
     ) 
 STATIC_ROOT = os.path.join(
         os.path.dirname(BASE_DIR), 'deployment', 'collected_static')
+
+# This is for putting the client ip address saving middleware 
+# import sys
+# sys.path.append(os.path.join(BASE_DIR, 'mutexdb'),)

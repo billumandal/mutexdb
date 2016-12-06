@@ -12,9 +12,9 @@ class SaveClientIpMiddleware(object):
             ip = x_forwarded_for.split(',')[-1].strip()
         else:
             ip = request.META.get('REMOTE_ADDR')
-        try:
-            Userlog.objects.get(client_ip=ip)
-        except Userlog.DoesNotExist:
-            ip_address = Userlog(client_ip=ip, visiting_time=datetime.datetime.now())
-            ip_address.save()
+        # try:
+            # Userlog.objects.get(client_ip=ip)
+        # except Userlog.DoesNotExist:
+        ip_address = Userlog(client_ip=ip, visiting_time=datetime.datetime.now())
+        ip_address.save()
         return None

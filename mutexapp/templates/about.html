@@ -1,0 +1,58 @@
+{% load staticfiles %}
+{% include "header.html" %}
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+	  
+	  <!-- Begin page content -->
+	  <div class="container">
+	    <div class="page-header">
+	<br/>&nbsp;
+	      <h2>About MutexDB</h2>
+	    </div> 
+	    
+	<div class="container">
+	
+		<div class="row">
+		
+			<div class="col-md-5">
+			            <h4>What is a Mutex?</h4>
+						<p style="text-align: justify;">In computer programming, a mutex is a program object that allows multiple program threads to share the same resource, such as file access, but not simultaneously. When a program is started, a mutex is created with a unique name. After this stage, any thread that needs the resource must lock the mutex from other threads while it is using the resource. The mutex is set to unlock when the data is no longer needed or the routine is finished.<br/>The concept is called "mutual exclusion" (short Mutex), and is a way to ensure that only one thread is allowed inside that area, using that resource.</p><br/>
+						<h4>What is mutexdb.com?</h4>
+						<p style="text-align: justify;">
+						Apart from legitimate use of this program object, mutexs are also used by malware creators to avoid the infection of a system by different instances of the same malware. When a malware gets executed on a system, it first tries obtain a handle to a “named” mutex and if the process fails; then the malware exits.<br/> We at MutexDB try to associate the Mutex string to a legitimate program or a Malicious Instance.
+						</p><br/>
+						<h4>Is this a Free Service?</h4>
+												<p style="text-align: justify;">
+												This is absolutely a free service. We are looking at also having api's to help workplace automations.
+												</p>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-5">
+			            <h4>Commercial usage?</h4>						<p style="text-align: justify;">
+						At this point in time, we dont intend to allow this free service to be used in commercial products, or services or in any form of commercial purpose.
+						</p><br/>
+						
+						<h4>False positives</h4>						<p style="text-align: justify;">
+						Firstly this is a beta service. There are bright chances that you will end up in a false positive. We appreciate if you could highlight us by sending out an email to us about the false positive. This will improve the service and serve a large community to derive at conclusions based on the output this service provides.<br/>
+						Having said that, there has been a large effort and research into this project to keep false positives at minimal.<br/>
+						There are also chances that you may not find what you paste as well. If you wish to include the same in our databse, please email us the mutex for us to research more on the same.<br/><br/>
+						<strong>Bottom line:</strong> We are aggregating information based on research and intel, and we cannot be held responsible if these results have caused you inconvenience.			
+						</p>
+			</div>
+		
+		</div>
+	</div>
+	</div>
+
+	    
+	  </div>
+	</div>
+
+
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<a href="http://mutexdb.com/research.php"><div style="height: 0px; width: 0px;"></div></a>
+{% include "footer.html" %}
+    </body>
+</html>

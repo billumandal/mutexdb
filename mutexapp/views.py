@@ -14,13 +14,13 @@ def searchproject(request):
                 form.save()
                 return HttpResponseRedirect('.')
             return render(request, 'index3.html', 
-                {'form': form, 'ip':client_ip, 'mutexes':mutexes,})
+                {'form': form, 'client_ip':client_ip, 'mutexes':mutexes,})
         
     else:
         nothing = [' ',]
         form = MutexSearchForm()
         return render(request, 'index3.html', 
-                {'form': form, 'ip':client_ip, 'nothing':nothing, })
+                {'form': form, 'client_ip':client_ip, 'nothing':nothing, })
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -29,3 +29,12 @@ def get_client_ip(request):
     else:
         client_ip = request.META.get('REMOTE_ADDR')
     return client_ip
+
+def feedback(request):
+    pass
+
+def about(request):
+    pass
+
+def faq(request):
+    pass

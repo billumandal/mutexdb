@@ -21,4 +21,7 @@ from mutexapp import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.searchproject, name='searchproject'),
+    url(r'^about/$', TemplateView.as_view(template_name='about.html'), name='about'),
+    url(r'^faq/$', views.faq, name='faq'),
+    url(r'^feedback/$', views.feedback, name='feedback'),
 ]

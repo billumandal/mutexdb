@@ -25,3 +25,7 @@ class Userlog(models.Model):
 	visiting_time = models.DateTimeField()
 
     # verbose_name='Userlog'
+
+class Faq(models.Model):
+	question = models.CharField(max_length=150, blank=False)
+	answer = models.CharField(max_length=1000, blank=False)

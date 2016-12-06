@@ -1,7 +1,10 @@
-<?php
-include("../header.php");
-?>	  
-	  <!-- Begin page content -->
+{% load staticfiles %}
+{% include "header.html" %}
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <!-- Begin page content -->
 	  <div class="container">
 	    <div class="page-header">
 	<br/>&nbsp;
@@ -47,10 +50,7 @@ include("../header.php");
 	  </div>
 	</div>
 
-<?php
-	/*  Footer Script  */
-	include("../footer.php");
-?>	
 	<script src="../assets/js/bootstrap.min.js"></script>
+	{% include "footer.html" %}
    </body>
 </html>

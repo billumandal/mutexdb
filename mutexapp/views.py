@@ -32,9 +32,3 @@ def get_client_ip(request):
 
 def feedback(request):
     pass
-
-def about(request):
-    pass
-
-def faq(request):
-    pass

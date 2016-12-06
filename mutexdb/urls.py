@@ -17,11 +17,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from mutexapp import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.searchproject, name='searchproject'),
     url(r'^about/$', TemplateView.as_view(template_name='about.html'), name='about'),
-    url(r'^faq/$', views.faq, name='faq'),
+    url(r'^faq/$', TemplateView.as_view(template_name='faq.html'), name='faq'),
     url(r'^feedback/$', views.feedback, name='feedback'),
 ]

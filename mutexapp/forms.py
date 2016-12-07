@@ -10,7 +10,7 @@ class MutexSearchForm(ModelForm):
     mutexs = forms.CharField(max_length=500, label='') 
     # This sentence is just to put the 'label' widget there, so that it doesn't show any name in the template
 
-class FeedbackForm(ModelForm):
+class FeedbackForm(forms.Form):
     name = forms.CharField(label='Your Name', required=True)
     company = forms.CharField(label='The company you work for', required=False)
     website = forms.URLField(label='Your Website', required=False)

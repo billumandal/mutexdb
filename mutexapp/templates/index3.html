@@ -1,5 +1,6 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-{% include "header.html" %}
+{% block body %}
     <hr/>
     <hr/>
     <hr/>
@@ -36,6 +37,4 @@
     <script src="/assets/js/jquery-1.10.2.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/social.js"></script>
-    {% include "footer.html" %}
-    </div>
-</html>
+{% endblock %}

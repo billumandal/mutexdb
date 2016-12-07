@@ -10,6 +10,12 @@ class Mutexs(models.Model):
     def __unicode__(self):
         return self.mutexs
 
+class Userlog(models.Model):
+    client_ip = models.GenericIPAddressField()
+    visiting_time = models.DateTimeField()
+
+    # verbose_name='Userlog'
+
 class Feedback(models.Model):
     name = models.CharField(max_length=100, blank=False)
     company = models.CharField(max_length=100, blank=True)
@@ -19,9 +25,3 @@ class Feedback(models.Model):
 
     def __unicode__(self):
     	return self.id, self.email_address, self.name
-
-class Userlog(models.Model):
-	client_ip = models.GenericIPAddressField()
-	visiting_time = models.DateTimeField()
-
-    # verbose_name='Userlog'

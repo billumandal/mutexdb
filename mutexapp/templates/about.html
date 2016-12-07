@@ -1,5 +1,6 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-{% include "header.html" %}
+{% block body %}
     <hr/>
     <hr/>
     <hr/>
@@ -53,6 +54,4 @@
 
 	<script src="../assets/js/bootstrap.min.js"></script>
 	<a href="http://mutexdb.com/research.php"><div style="height: 0px; width: 0px;"></div></a>
-{% include "footer.html" %}
-    </body>
-</html>
+{% endblock %}

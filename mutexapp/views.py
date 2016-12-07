@@ -1,7 +1,8 @@
-from django.shortcuts import render, render_to_response
-from models import Mutexs, Feedback
-from django.http import HttpResponseRedirect
-from forms import MutexSearchForm
+from django.shortcuts import render, render_to_response, redirect
+from models import Mutexs
+from django.http import HttpResponseRedirect, HttpResponse
+from forms import MutexSearchForm, FeedbackForm
+from django.core.mail import send_mail, BadHeaderError
 
 def searchproject(request):
     client_ip = get_client_ip(request)
@@ -31,4 +32,23 @@ def get_client_ip(request):
     return client_ip
 
 def feedback(request):
-    pass
+    if request.method == 'GET':
+        form = FeedbackForm()
+    else:
+        form = FeedbackForm(request.POST)
+        if form.is_valid:
+            name=form.cleaned_data['name']
+            company=form.cleaned_data['company']
+            website=form.cleaned_data['website']
+            email=form.cleaned_data['email']
+            message=form.cleaned_data['message']
+            subject = "{n} has sent a feedback regarding your mutexdb website.".format(n=name,)
+            try:
+                send_mail(name,email_body, from_email, ['jonpeetarson@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('thanks')
+    return render(request, "feedback.html", {'form':form})
+
+def thanks(request):
+    return HttpResponse("<html>Thanks for you feedback. \n click <a href='.'>here</a> to get back to homepage</html>")

@@ -6,7 +6,7 @@ class SaveClientIpMiddleware(object):
         Save the client's IP address 
     """
     def process_request(self, request):
-        print "The ip middleware is getting processed."
+        print "The IP middleware is getting processed."
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:
             ip = x_forwarded_for.split(',')[-1].strip()

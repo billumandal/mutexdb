@@ -25,4 +25,9 @@ urlpatterns = [
     url(r'^about/$', TemplateView.as_view(template_name='about.html'), name='about'),
     url(r'^faq/$', TemplateView.as_view(template_name='faq.html'), name='faq'),
     url(r'^feedback/$', views.feedback, name='feedback'),
+    url(r'^thanks/$', views.thanks, name='thanks_for_feedback'),
+    # url(r'^test-captcha/$', views.feedback, name='test-captcha-in-feedback-form'),
+    # This is just to test the captcha to be used in feedback form. I made a different page
+    # cause you never know if it might work, there is an ajax component in the template.
+    # The url is https://github.com/mbi/django-simple-captcha/blob/master/docs/usage.rst
 ]

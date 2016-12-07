@@ -1,5 +1,6 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-{% include "header.html" %}
+{% block body %}
     <hr/>
     <hr/>
     <hr/>
@@ -51,6 +52,4 @@
 	</div>
 
 	<script src="../assets/js/bootstrap.min.js"></script>
-	{% include "footer.html" %}
-   </body>
-</html>
+{% endblock body %}

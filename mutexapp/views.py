@@ -42,12 +42,27 @@ def feedback(request):
             website=form.cleaned_data['website']
             email=form.cleaned_data['email']
             message=form.cleaned_data['message']
-            subject = "{n} has sent a feedback regarding your mutexdb website.".format(n=name,)
+            
+            addfeedback = form.save() # saved data in database
+
+            subject = "{n} has sent a feedback at your mutexdb website.".format(n=name,)
+            email_body = """ 
+                Name: {n},
+                Company: {c}
+                Website: {w}
+                His email: {e}
+                Message as below.
+                ***********************
+                {m}
+                ***********************
+                PS: You can also check the feedback in the admin interface.
+            """.format(n=name, c=company, w=website, e=email, m=message,)
             try:
-                send_mail(name,email_body, from_email, ['jonpeetarson@gmail.com'])
+                send_mail(name,email_body, from_email, ['contact@mutexdb.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('thanks')
+            # return HttpResponseRedirect('thanks')
     return render(request, "feedback.html", {'form':form})
 
 def thanks(request):

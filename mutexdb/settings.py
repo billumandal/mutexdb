@@ -129,6 +129,14 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(
         os.path.dirname(BASE_DIR), 'deployment', 'collected_static')
 
-# This is for putting the client ip address saving middleware 
-# import sys
-# sys.path.append(os.path.join(BASE_DIR, 'mutexdb'),)
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'  # Sends email to console
+
+"""
+for production
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+1EMAIL_HOST=127.0.0.1
+1EMAIL_PORT=587
+2EMAIL_HOST_USER=<smtp_user>
+2EMAIL_HOST_PASSWORD=<smtp_user_pwd>
+EMAIL_USE_TLS=True
+"""

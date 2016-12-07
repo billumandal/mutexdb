@@ -1,13 +1,14 @@
 from django.contrib import admin
-from models import Mutexs, Userlog
+from models import Mutexs, Userlog, Feedback
+from forms import FeedbackForm
 
 # Register your models here.
 class MutexsAdmin(admin.ModelAdmin):
     search_fields = ('mutexs',)
 
-# class FeedbackAdmin(admin.ModelAdmin):
-#     search_fields = ['name', 'company', 'website', 'email_address',]
-#     form = FeedbackForm()
+class FeedbackAdmin(admin.ModelAdmin):
+    search_fields = ['name', 'company', 'website', 'email_address',]
+    # form = FeedbackForm()
 
 class UserlogAdmin(admin.ModelAdmin):
     list_display = ('id','visiting_time', 'client_ip')
@@ -16,3 +17,4 @@ class UserlogAdmin(admin.ModelAdmin):
 
 admin.site.register(Mutexs, MutexsAdmin)
 admin.site.register(Userlog, UserlogAdmin)
+admin.site.register(Feedback, FeedbackAdmin)

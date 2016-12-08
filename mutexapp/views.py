@@ -59,11 +59,22 @@ def feedback(request):
             """.format(n=name, c=company, w=website, e=from_email, m=message,)
             try:
                 send_mail(name,email_body, from_email, ['jonpeetarson@gmail.com'])
+                thanks = "Thanks for you feedback."
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            # return redirect('thanks')
             return HttpResponseRedirect('../thanks')
     return render(request, "feedback.html", {'form':form})
 
 def thanks(request):
-    return HttpResponse("<html>Thanks for you feedback. \n click <a href='..'>here</a> to get back to homepage</html>")
+    return HttpResponse("""
+        <html>Thanks for you feedback. \n Click <a href='..'>here</a> to get back to homepage\n</html>
+
+<script type='text/javascript'>   
+function Redirect() 
+{  
+window.location='..'; 
+} 
+document.write('\n You will be redirected to a new page in 5 seconds'); 
+setTimeout('Redirect()', 5000);   
+</script>
+""")

@@ -56,23 +56,21 @@
 	      </div>
 	      <div class="collapse navbar-collapse">
 	        <ul class="nav navbar-nav pull-right">
-	          <!-- Have to code to make active the page its on
-              <li<?php echo is_contains($index_page,$page) ? ' class="active"' :  ''; ?>><a href="/">Home</a></li>
-	          <li<?php echo is_contains("/about/",$page) ? ' class="active"' :  ''; ?>><a href="/about">About</a></li>
-	          <li<?php echo is_contains("/faq/",$page) ? ' class="active"' :  ''; ?>><a href="/faq">FAQ</a></li>
-			  <li>&nbsp;</li>
-			  <li<?php echo is_contains("/feedback/",$page) ? ' class="active"' :  ''; ?>><a href="/feedback">Feedback</a></li> -->
-              <li class="active"><a href="/">Home</a></li>
-              <li class="active"><a href="/about">About</a></li>
-              <li class="active"><a href="/faq">FAQ</a></li>
+              <li  {% if request.get_full_path == "/" %}class="active"{% endif %}><a href="/">Home</a></li>
+              <li {% if request.get_full_path == "/about/" %}class="active"{% endif %}><a href="/about">About</a></li>
+              <li {% if request.get_full_path == "/faq/" %}class="active"{% endif %}><a href="/faq">FAQ</a></li>
               <li>&nbsp;</li>
-              <li class="active"><a href="/feedback">Feedback</a></li>
+              {# <li class="active"><a href="/feedback">Feedback</a></li> #}
+              <li {% if request.get_full_path == "/feedback/" %}class="active"{% endif %}><a href="/feedback">Feedback</a></li>
+              <li><a href="/login/clef/"><span class="glyphicon glyphicon-user"></span>&nbsp;Login</a>
+          </li>
 	        </ul>
 	      </div><!--/.nav-collapse -->
 	    </div>
 	  </div>
 	  
 	  {% block body %}{% endblock %}
+	 </div>
 
 {% endspaceless %}
     <div id="footer">

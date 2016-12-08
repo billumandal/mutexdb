@@ -15,11 +15,11 @@ class FeedbackForm(ModelForm):
         model = Feedback
         fields = '__all__'
 
-    name = forms.CharField(label='Your Name', required=True)
-    company = forms.CharField(label='The company you work for', required=False)
-    website = forms.URLField(label='Your Website', required=False)
-    email = forms.EmailField(label='Your email address',required=True)
-    message = forms.CharField(widget=forms.Textarea, label='Your feedback message', required=True)
+    name = forms.CharField(label='Your Name', required=True, widget=forms.TextInput(attrs={'class':'form-control',}))
+    company = forms.CharField(label='The company you work for', required=False, widget=forms.TextInput(attrs={'class':'form-control',}))
+    website = forms.URLField(label='Your Website', required=False, widget=forms.TextInput(attrs={'class':'form-control',}))
+    email = forms.EmailField(label='Your email address',required=True, widget=forms.TextInput(attrs={'class':'form-control',}))
+    message = forms.CharField(label='Your feedback message', required=True, widget=forms.Textarea(attrs={'class':'form-control',}))
     
     def clean_message(self):
         message = self.cleaned_data.get('message', '')

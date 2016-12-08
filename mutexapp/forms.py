@@ -22,9 +22,9 @@ class FeedbackForm(ModelForm):
     message = forms.CharField(widget=forms.Textarea, label='Your feedback message', required=True)
     
     def clean_message(self):
-        message = self.clean_data.get('message', '')
+        message = self.cleaned_data.get('message', '')
         num_words = len(message.split())
-        if num_words< 10:
+        if num_words< 5:
             raise forms.ValidationError("Not enough words!")
         return message
 

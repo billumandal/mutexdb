@@ -20,8 +20,8 @@ class Feedback(models.Model):
     name = models.CharField(max_length=100, blank=False)
     company = models.CharField(max_length=100, blank=True)
     website = models.CharField(max_length=70, blank=True)
-    email_address = models.EmailField(max_length=100, blank=False)
+    email = models.EmailField(max_length=100, blank=False)
     message = models.CharField(max_length=500, blank=False)
 
     def __unicode__(self):
-    	return self.id, self.email_address, self.name
+    	return "{0}, {1}".format(self.id, self.email, self.name)

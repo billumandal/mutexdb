@@ -36,11 +36,11 @@ def feedback(request):
         form = FeedbackForm()
     else:
         form = FeedbackForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             name=form.cleaned_data['name']
             company=form.cleaned_data['company']
             website=form.cleaned_data['website']
-            email=form.cleaned_data['email']
+            from_email=form.cleaned_data['email']
             message=form.cleaned_data['message']
             
             addfeedback = form.save() # saved data in database
@@ -56,14 +56,14 @@ def feedback(request):
                 {m}
                 ***********************
                 PS: You can also check the feedback in the admin interface.
-            """.format(n=name, c=company, w=website, e=email, m=message,)
+            """.format(n=name, c=company, w=website, e=from_email, m=message,)
             try:
-                send_mail(name,email_body, from_email, ['contact@mutexdb.com'])
+                send_mail(name,email_body, from_email, ['jonpeetarson@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('thanks')
-            # return HttpResponseRedirect('thanks')
+            # return redirect('thanks')
+            return HttpResponseRedirect('../thanks')
     return render(request, "feedback.html", {'form':form})
 
 def thanks(request):
-    return HttpResponse("<html>Thanks for you feedback. \n click <a href='.'>here</a> to get back to homepage</html>")
+    return HttpResponse("<html>Thanks for you feedback. \n click <a href='..'>here</a> to get back to homepage</html>")

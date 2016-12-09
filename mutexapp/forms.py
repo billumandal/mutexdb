@@ -7,7 +7,7 @@ class MutexSearchForm(ModelForm):
     	model = Mutexs
     	fields = '__all__'
 
-    mutexs = forms.CharField(max_length=500, label='') 
+    mutexs = forms.CharField(max_length=500, label='', required=False, widget=forms.TextInput(attrs={'class':'form-control',})) 
     # This sentence is just to put the 'label' widget there, so that it doesn't show any name in the template
 
 class FeedbackForm(ModelForm):

@@ -1,18 +1,64 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block body %}
-    <hr/>
-    <hr/>
-    <hr/>
-    <hr/>
-    <h3>Enter the mutex you want to search here</h3>
-    <br><br>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <!-- <input type="text" id="search" name="search" /> -->
-        <input type="submit" value="search">
-    </form>
+
+<!-- Begin page content -->
+      <div class="container">
+        <!--<div class="page-header">
+          
+        </div> //-->
+        
+    <div class="container">
+    <br/>&nbsp;<br/><br/>&nbsp;<br/>
+    <ul class="nav nav-tabs col-centered" id="theTabs">
+        <li class="active"><a href="#search">Search</a></li>
+    </ul>
+     
+    <div class="tab-content">
+        <div class="tab-pane active" id="search">
+            <br/>&nbsp;<br/>
+            <div style="text-align:center;">
+                <form class="form-horizontal form1" role="form" action="" method="POST">
+                <div class="form-group">                            
+                <div class="input-group col-sm-6 col-centered">
+                        {% csrf_token %}
+                        {{ form }}
+                        <span class="input-group-btn">
+                            <button value="search" type="button" class="btn btn-default btnSearchByName">
+                            <span class="glyphicon glyphicon-search"> Search</span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                </form>
+                
+                <div class="row notificationPanel">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8  alert alert-warning" role="alert">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2" style="text-align: center;"></div>
+                        <div class="col-sm-8" style="text-align: center;">
+                            <div id="result" style="text-align: center;"></div>
+                    </div>
+                </div>
+                
+
+
+            </div>
+            
+            <p><br/>&nbsp;<br/>Got a Mutex to verify, no problem; paste it up here and we will check it for you. <br/>This is a <strong>BETA</strong> service and we will continue to improve our service.<br/><br/><div class="social-likes" data-url="http://www.mutexdb.com" data-title="MutexDB">
+                <div class="facebook" title="Share link on Facebook">Facebook</div>
+                <div class="twitter" title="Share link on Twitter">Twitter</div>
+                <div class="plusone" title="Share link on Google+">Google+</div>
+            </div></p>
+        </div>
+        <!-- End of search tab //-->
+    </div>
+    </div>
+    </div>
     <hr>
         <ol>
         {% if mutexes %}

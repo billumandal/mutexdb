@@ -34,7 +34,7 @@ body {
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	color: #FF0000;
+	color: #0000;
 	border-bottom: 1px solid rgb(47, 182, 255);
 	background-color: #f5f5f5;
 	/*background-color: rgb(47, 182, 255);*/

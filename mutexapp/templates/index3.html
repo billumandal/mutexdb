@@ -24,7 +24,7 @@
                         {% csrf_token %}
                         {{ form }}
                         <span class="input-group-btn">
-                            <button value="search" type="button" class="btn btn-default btnSearchByName">
+                            <button value="search" type="button" class="btn btn-info btnSearchByName">
                             <span class="glyphicon glyphicon-search"> Search</span>
                             </button>
                         </span>
@@ -76,9 +76,8 @@
         </ol>
 
 
-    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/default.css' %}">
     <script src="{% static '/assets/js/jquery-2.0.0.min.js' %}"></script>
-    <script src="/assets/js/jquery-1.10.2.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/social.js"></script>
+    <script src="{% static '/assets/js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static '/assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/assets/js/social.js' %}"></script>
 {% endblock %}
